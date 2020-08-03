@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+hello<br><br>
+
+{% if api %}
+    {% if api == 'Error...' %}
+        <p>error please try again</p>
+    {% else %}   
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Country: {{ api.sys.country }} City: {{ api.name }}</h1>
+            <p class="lead">Degree: {{ api.wind.deg }}<br><br>
+                Status: {{ api.weather.0.description}}<br><br>
+                Temp: {{ api.main.temp}}<br><br></p>
+        </div>
+    </div> 
+        
+    {% endif %}
+{% endif %}
+
+{% endblock content %}
